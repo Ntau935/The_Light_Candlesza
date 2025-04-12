@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Light candles Website</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="script.js"></script>
+</head>
+<style>
+   /* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+    line-height: 1.6;
+}
+
+/* Header */
+
+header {
+    position: fixed;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    text-align: center;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 50px;
+    height: auto;
+    margin-left: 10px;
+}
+
+header h2 {
+    color: lightskyblue;
+    text-decoration: none;
+}
+
+/* Navigation */
+nav ul {
+     list-style-type: none;
+    padding: 0;
+    display: flex;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: lightskyblue;
+    text-decoration: none;
+}
+@media (max-width: 768px) {
+    .nav-link {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background-color: white;
+        width: 100%;
+        top: 50px;
+        left: 0;
+    }
+
+    .nav-link.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+   
+.menu-toggle {
+    display: none;
+    color: lightskyblue;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/* Sections */
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    
+}
+
+
+#home {
+    background: url('Gallery/back2.jpg') no-repeat center center/cover;
+}
+.text-back{
+  background-color: white;  
+  align-items: center;
+}
+#home h1, #home h3 {
+    color: lightskyblue;
+   
+}
+
+#about, #products, #contact, #gallery {
+    background: #333;
+}
+
+/* Gallery */
+.Gallery-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    border-radius: 3px;
+   
+    
+    /* Centering the section */
+    margin: 0 auto;
+    
+    /* Ensure it takes the height of all its content */
+    min-height: 100vh; /* Adjust if necessary */
+    height: auto;
+    
+    /* Prevent overflow */
+    overflow: hidden;
+
+    /* Ensure it does not extend beyond the parent */
+    box-sizing: border-box;
+}
+.slider-container {
+    position: relative;
+    max-width: 700px;
+    min-height: 700px;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center; /* Ensures height adjusts to images */
+}
+
+/* Slides container */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    align-items: flex-start; /* Adjust height based on content */
+}
+
+/* Images adjust height dynamically */
+.slides img {
+    width: 100%;
+    height: auto; /* Adjust height dynamically */
+    border-radius: 10px;
+    object-fit: contain; /* Prevents image distortion */
+}
+
+/* Navigation buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Videos */
+.video-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+video {
+    width: 45%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Products */
+.product-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product {
+    background: white;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    color: black;
+}
+
+.product img {
+    width: 200px; /* Set a fixed width */
+    height: 200px; /* Set a fixed height */
+    object-fit: cover; /* Ensures images cover the specified area without distortion */
+    border-radius: 5px; /* Optional: for rounded corners on the images */
+}
+
+/* About Section */
+.about-section {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      /* Adjust if necessary */
+    height: auto;
+      gap: 40px;
+    }
+
+    .content-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease;
+    }
+
+    .content-box:hover {
+      transform: scale(1.02);
+    }
+
+    .text-content {
+      flex: 1;
+      padding-right: 20px;
+    }
+
+    .text-content h2 {
+      margin: 0 0 10px;
+      color: lightskyblue;
+    }
+
+    .text-content p {
+      line-height: 1.6;
+      color: lightskyblue;
+    }
+
+    .image-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .image-content img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+/* Contact Section */
+.container-con {
+    max-width: 800px;
+    margin: 0 auto;
+  ;
+}
+#contact {
+    padding: 40px 20px;
+    background-color: #333;
+    border-radius: 0px;
+ 
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #e8f5e9;
+}
+
+button {
+    background-color:lightskyblue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: window;
+}
+
+
+/* Footer */
+footer {
+    background: lightskyblue;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+ 
+}
+footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+
+footer .footer-content div {
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+footer .footer-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+footer .footer-content p,
+footer .footer-content a {
+    font-size: 0.9rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+footer .footer-content a:hover {
+    text-decoration: underline;
+}
+
+footer .footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+</style>
+<body>
+<header>
+  <div class="container">
+    <div class="logo">
+      <img src="Gallery/logo1.jpeg" alt="Logo" />
+      <h2>The Light candles</h2>
+    </div>
+
+    <nav>
+      <ul class="nav-link">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about-container">About Us</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars" style="color: white;"></i>
+    </div>
+  </div>
+</header>
+    <div class="container">
+    <section id="home">
+        <div class="text-back">
+        <h1>Welcome to The Light candles</h1>
+        <h3>Where we say
+        <br>Let there be Light!</h3>
+        </div>
+    </section>
+
+    <section id="about-container" class="about-section">
+        <h1 style="color: lightskyblue;">About Us</h1>
+    </section>
+    <section id="gallery" class="Gallery-section">
+        
+            <h2 style="align-items: center; ">Gallery</h2>
+        <p>Take a look at our delicious creations.</p>
+         
+        <div class="slider-container">
+            <div class="slides">
+                <img src="Gallery/Gall 1.jpeg" alt="AI Image 1">
+                <img src="Gallery/Gall3.jpeg" alt="AI Image 2">
+                  <img src="Gallery/gall7.jpeg" alt="AI Image 6">
+                 <img src="Gallery/gall6.jpeg" alt="AI Image 7">
+                  <img src="Gallery/gall4.jpeg" alt="AI Image 8">
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+        <div class="video-section">
+            <video controls>
+                <source src="video1.mp4" type="video/mp4">
+            </video>
+            <video controls>
+                <source src="video2.mp4" type="video/mp4">
+                
+            </video>
+        </div>
+          
+    </section>
+
+    <section id="products">
+    <h2>Our Products</h2>
+    <div class="product-container">
+        <div class="product">
+            <img src="Gallery/pic 1 (1).jpeg" alt="Product 1">
+            <h3>Candle stand</h3>
+            <p>R60</p>
+        </div>
+        <div class="product">
+            <img src="Gallery/pic 1 (5).jpeg" alt="Product 2">
+            <h3>candle</h3>
+            <p>R20</p>
+        </div>
+        <div class="product">
+            <img src="Gallery/pic 1 (8).jpeg" alt="Product 1">
+            <h3>Bracelet</h3>
+            <p>R80</p>
+        </div>
+    </div>
+    <div class="product-container">
+        <div class="product">
+            <img src="Gallery/pic 1 (24).jpeg" alt="Product 1">
+            <h3>gold candle</h3>
+            <p>R50</p>
+        </div>
+        <div class="product">
+            <img src="Gallery/pic 1 (30).jpeg" alt="Product 2">
+            <h3>Candle design Stand</h3>
+            <p>R40</p>
+        </div>
+        <div class="product">
+            <img src="Gallery/produ.jpeg" alt="Product 1">
+            <h3>Incense Sticks</h3>
+            <p>$20</p>
+        </div>
+    </div>
+</section>
+    </div>
+
+    <section id="contact">
+          <div class="container-con">
+            <h2>Contact Us</h2>
+            <p>Email: <a href="mailto:Makatu@thelightcandles.co.za">Makatu@thelightcandles.co.za</a></p>
+            <form id="contact-form" method="post">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Your Address" required>
+                <input type="text" placeholder="Your Number" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Request</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+         <div class="footer-content">
+            <div>
+                <h2>Address</h2>
+                <p> 10556 Msilinga Street,</p>
+                <p> pimville,soweto</p>
+                <p>Gauteng</p>
+                
+            </div>
+              <div>
+                <h2>Shop Hours</h2>
+                <p>Mon-Fri:
+                    <br> 09h00-17h00</p>
+                <p>Sat:
+                    <br> 10h00-16h00</p>
+            </div>
+            <div>
+                <h2>Contact</h2>
+                <p>Mobile: 079 320 4106</p>
+                 <p>WhatsApp number: 079 320 4106</p>
+                <p>Email: <a href="mailto:Makatu@thelightcandles.co.za">Makatu@thelightcandles.co.za</a></p>
+            </div>
+            <div>
+                <h2>Social Media</h2>
+                <p><a href="https://facebook.com" target="_blank">Facebook:@LightCandlesZA </a></p>
+                <p><a href="https://twitter.com" target="_blank">Twitter: @LightCandlesZA</a></p>
+                <p><a href="https://instagram.com" target="_blank">Instagram: @lightcandlesza</a></p>
+            </div>
+            
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; The Light candles 2025 | Let there be Light!.</p>
+        </div>
+    </footer>
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
+    
+     <script>
+        let slideIndex = 0;
+        function moveSlide(step) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            slideIndex = (slideIndex + step + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+        }
+        setInterval(() => moveSlide(1), 3000);
+    </script>
+ <script>
+    const contentData = [
+      {
+        title: "Our Mission",
+        text: "We aim to deliver top-notch full-stack web solutions that drive innovation and success.",
+        img: "https://via.placeholder.com/300x200?text=Mission"
+      },
+      {
+        title: "Our Vision",
+        text: "To be a leading tech force known for creative solutions and exceptional user experiences.",
+        img: "https://via.placeholder.com/300x200?text=Vision"
+      },
+      {
+        title: "Our Skills",
+        text: "We specialize in frontend (HTML, CSS, JS, React) and backend (Node.js, Express, MongoDB) development.",
+        img: "https://via.placeholder.com/300x200?text=Skills"
+      },
+      {
+        title: "Our Promise",
+        text: "We’re committed to quality, timely delivery, and building long-term client relationships.",
+        img: "https://via.placeholder.com/300x200?text=Promise"
+      }
+    ];
+
+    const container = document.getElementById("about-container");
+
+    contentData.forEach(item => {
+      const box = document.createElement("div");
+      box.className = "content-box";
+
+      box.innerHTML = `
+        <div class="text-content">
+          <h2>${item.title}</h2>
+          <p>${item.text}</p>
+        </div>
+        <div class="image-content">
+          <img src="${item.img}" alt="${item.title}">
+        </div>
+      `;
+
+      container.appendChild(box);
+    });
+  </script>
+</body>
+</html>
